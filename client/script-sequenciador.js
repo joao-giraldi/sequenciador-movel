@@ -8,7 +8,9 @@ socket.on("connect", () => {
 });
 
 socket.on("sequenciador_atual", (id) => {
-  sequenciadorAtual.innerHTML = `Sequenciador atual: ${id === socket.id ? "Você" : id}`;
+  sequenciadorAtual.innerHTML = `Sequenciador atual: ${
+    id === socket.id ? "Você" : id
+  }`;
   console.log(`👑 Sequenciador atual: ${id === socket.id ? "Você" : id}`);
 });
 
@@ -17,7 +19,7 @@ socket.on("mensagem_para_sequenciador", (msg) => {
 
   socket.emit("mensagem_ordenada", {
     de: msg.de,
-    texto: msg.texto
+    texto: msg.texto,
   });
 
   console.log("📤 Reenviada com ordem pelo sequenciador");
@@ -40,7 +42,9 @@ function interceptConsole(divId = "consoleLog") {
   const consoleDiv = document.getElementById(divId);
 
   console.log = function (...args) {
-    const msg = args.map(a => typeof a === "object" ? JSON.stringify(a) : String(a)).join(" ");
+    const msg = args
+      .map((a) => (typeof a === "object" ? JSON.stringify(a) : String(a)))
+      .join(" ");
     const line = document.createElement("div");
     line.textContent = msg;
     consoleDiv.appendChild(line);

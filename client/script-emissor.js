@@ -20,7 +20,9 @@ function enviarMensagem() {
 function interceptConsole() {
   const originalLog = console.log;
   console.log = function (...args) {
-    const msg = args.map(a => typeof a === "object" ? JSON.stringify(a) : String(a)).join(" ");
+    const msg = args
+      .map((a) => (typeof a === "object" ? JSON.stringify(a) : String(a)))
+      .join(" ");
     const line = document.createElement("div");
     line.textContent = msg;
     consoleDiv.appendChild(line);
