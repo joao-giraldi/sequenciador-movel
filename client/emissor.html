@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Emissor</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1>Emissor</h1>
+
+  <input type="text" id="inputMensagem" placeholder="Digite uma mensagem..." />
+  <button onclick="enviarMensagem()">Enviar</button>
+
+  <h3>Console</h3>
+  <pre id="consoleLog"></pre>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="script-emissor.js"></script>
+</body>
+</html>
