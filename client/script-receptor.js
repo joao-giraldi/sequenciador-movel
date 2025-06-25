@@ -1,8 +1,9 @@
+interceptConsole();
 const socket = io({ query: { tipo: "receptor" } });
 const mensagensDiv = document.getElementById("mensagens");
 const consoleDiv = document.getElementById("consoleLog");
 
-interceptConsole();
+
 
 socket.on("connect", () => {
   console.log(`🟢 Receptor conectado: ${socket.id}`);

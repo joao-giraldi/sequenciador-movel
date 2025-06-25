@@ -1,8 +1,9 @@
+interceptConsole();
 const socket = io({ query: { tipo: "emissor" } });
 const input = document.getElementById("inputMensagem");
 const consoleDiv = document.getElementById("consoleLog");
 
-interceptConsole();
+
 
 socket.on("connect", () => {
   console.log(`🟢 Emissor conectado: ${socket.id}`);

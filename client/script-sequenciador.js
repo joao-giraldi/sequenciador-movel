@@ -1,3 +1,4 @@
+interceptConsole();
 const socket = io({ query: { tipo: "sequenciador" } });
 const mensagensDiv = document.getElementById("mensagens");
 const sequenciadorAtual = document.getElementById("sequenciadorAtual");
@@ -53,4 +54,4 @@ function interceptConsole(divId = "consoleLog") {
   };
 }
 
-interceptConsole();
+
