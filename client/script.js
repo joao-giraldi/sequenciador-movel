@@ -50,7 +50,7 @@ const sequenciadores = [1, 2, 3].map((num) => {
   socket.on("connect", () => {
     logPara(
       `sequenciador${num}`,
-      `🟢 Conectado como Sequenciador ${num}: ${socket.id}`
+      `🔵 Conectado como Sequenciador ${num}: ${socket.id}`
     );
   });
 
