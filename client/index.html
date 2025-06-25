@@ -1,36 +1,71 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Sistemas Distribuídos - Sequenciador Móvel</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body class="landing">
-  <header>
-    <h1>Sistemas Distribuídos - UFSC Araranguá</h1>
-    <h2>Trabalho Prático - Sequenciador Móvel</h2>
-  </header>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sistema Distribuído - Multi Sequenciador</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="unificado">
+    <header>
+      <h1>Sistema Distribuído - Simulação com 3 Sequenciadores</h1>
+    </header>
 
-  <section>
-    <p>Este sistema simula um ambiente distribuído com três tipos de participantes:</p>
-    <ul style="list-style: none; padding: 0;">
-      <li>🟢 <strong>Emissor</strong>: envia mensagens ao grupo</li>
-      <li>🔵 <strong>Sequenciador</strong>: ordena e repassa as mensagens</li>
-      <li>🟣 <strong>Receptor</strong>: recebe mensagens ordenadas</li>
-    </ul>
+    <main class="painel">
+      <!-- EMISSOR -->
+<div class="emissores-coluna">
+  <section class="bloco emissor">
+    <h2>🟢 Emissor 1</h2>
+    <input type="text" id="inputMensagem1" placeholder="Digite sua mensagem..." />
+    <button id="btnEnviar1">Enviar</button>
+    <pre id="consoleEmissor1" class="console-box"></pre>
   </section>
 
-  <section style="margin-top: 30px;">
-    <a href="/emissor" class="btn">Acessar como 🟢 Emissor</a>
-    <a href="/sequenciador" class="btn">Acessar como 🔵 Sequenciador</a>
-    <a href="/receptor" class="btn">Acessar como 🟣 Receptor</a>
+  <section class="bloco emissor">
+    <h2>🟢 Emissor 2</h2>
+    <input type="text" id="inputMensagem2" placeholder="Digite sua mensagem..." />
+    <button id="btnEnviar2">Enviar</button>
+    <pre id="consoleEmissor2" class="console-box"></pre>
   </section>
+</div>
 
-  <footer style="margin-top: 60px;">
-    <p><strong>Participantes:</strong></p>
-    <p>João Marcos Moço, Gabriel Juliani e Nícolas Sanson</p>
-    <p style="font-size: 0.9em; color: #888;">Junho de 2025</p>
-  </footer>
-</body>
+
+      <!-- SEQUENCIADOR 1 -->
+      <section class="bloco sequenciador">
+        <h2>🔵 Sequenciador 1</h2>
+        <h4 id="sequenciadorAtual1">Sequenciador atual: ...</h4>
+        <div id="mensagensSequenciador1" class="caixa-mensagens"></div>
+        <button class="btnTrocar" data-id="1">🔁 Trocar Sequenciador</button>
+        <pre id="consoleSequenciador1" class="console-box-sequenciador"></pre>
+      </section>
+
+      <!-- SEQUENCIADOR 2 -->
+      <section class="bloco sequenciador">
+        <h2>🔵 Sequenciador 2</h2>
+        <h4 id="sequenciadorAtual2">Sequenciador atual: ...</h4>
+        <div id="mensagensSequenciador2" class="caixa-mensagens"></div>
+        <button class="btnTrocar" data-id="2">🔁 Trocar Sequenciador</button>
+        <pre id="consoleSequenciador2" class="console-box-sequenciador"></pre>
+      </section>
+
+      <!-- SEQUENCIADOR 3 -->
+      <section class="bloco sequenciador">
+        <h2>🔵 Sequenciador 3</h2>
+        <h4 id="sequenciadorAtual3">Sequenciador atual: ...</h4>
+        <div id="mensagensSequenciador3" class="caixa-mensagens"></div>
+        <button class="btnTrocar" data-id="3">🔁 Trocar Sequenciador</button>
+        <pre id="consoleSequenciador3" class="console-box-sequenciador"></pre>
+      </section>
+
+      <!-- RECEPTOR -->
+      <section class="bloco receptor">
+        <h2>🟣 Receptor</h2>
+        <div id="mensagensReceptor" class="caixa-mensagens-receptor"></div>
+        <pre id="consoleReceptor" class="console-box"></pre>
+      </section>
+    </main>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="script.js"></script>
+  </body>
 </html>
