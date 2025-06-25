@@ -106,7 +106,7 @@ server.listen(PORT, () => {
 
 function trocarSequenciador() {
   const ids = Array.from(grupoSequenciador);
-  if (ids.length === 0) {
+  if (ids.length == 0) {
     sequenciadorId = null;
     io.emit("sequenciador_atual", sequenciadorId);
     return;
